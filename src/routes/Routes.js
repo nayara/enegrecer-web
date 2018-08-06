@@ -7,7 +7,7 @@ import Sobre from '../components/sobre/Sobre';
 import ColetivoEnegrecer from '../components/coletivoEnegrecer/ColetivoEnegrecer';
 import NovaDenunciaContainer from '../containers/denuncias/NovaDenunciaContainer';
 import DepoisDaDenuncia from '../components/depoisdadenuncia/DepoisDaDenuncia';
-import ModeradorLogin from '../components/moderador/ModeradorLogin';
+import ModeradorLogin from '../components/moderador/Login/ModeradorLogin';
 import PaginaNaoEncontrada from '../components/paginaNaoEncontrada/PaginaNaoEncontrada';
 import PainelModerador from '../components/moderador/painelModerador';
 import MenuModerador from '../components/moderador/menuModerador';

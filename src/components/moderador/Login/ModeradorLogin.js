@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { auth, storageKey } from '../../utils/firebaseUtils';
-import Modal from '../comum/modal/modal';
+import { auth, storageKey } from '../../../utils/firebaseUtils';
+import Modal from '../../comum/modal/modal';
 
 import './moderador-login.css';
 
