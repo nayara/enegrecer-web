@@ -1,9 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import Combobox from '../comum/combobox';
 import './painel-moderador.css';
 import { detalhesDenuncia } from '../../actions/visualizarDenunciaActions';
+import { removerDenuncia } from '../../actions/removerDenunciaActions';
 
 function cliqueDetalhesDenuncia(denuncia) {
   return () => {
@@ -19,6 +22,10 @@ class DenunciaRow extends Component {
 
   mudaEstado = () => {
     this.setState({ expanded: !this.state.expanded });
+  }
+
+  remove = (idDenuncia) => {
+    this.props.removerDenuncia({ idDenuncia });
   }
 
   render() {
@@ -91,7 +98,7 @@ class DenunciaRow extends Component {
                 />
               </td>
               <td style={{ textAlign: 'right' }}>
-                <input className="remover-denuncia" type="button" value="Deletar" />
+                <input className="remover-denuncia" type="button" value="Deletar" onClick={() => this.remove(denuncia.id)} />
               </td>
 
               <td colSpan="2" style={{ textAlign: 'center' }}>
@@ -120,7 +127,15 @@ DenunciaRow.propTypes = {
     vitima: PropTypes.shape({
       genero: PropTypes.string
     })
-  }).isRequired
+  }).isRequired,
+  removerDenuncia: PropTypes.func.isRequired
 };
 
-export default DenunciaRow;
+const mapDispatchToProps = dispatch => bindActionCreators({
+  removerDenuncia,
+}, dispatch);
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(DenunciaRow);
