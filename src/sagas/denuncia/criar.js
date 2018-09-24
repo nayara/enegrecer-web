@@ -3,7 +3,7 @@ import { ref } from '../../utils/firebaseUtils';
 import { CLASSIFICACAO_DENUNCIA } from '../../utils/constants';
 import {
   CRIAR_DENUNCIA_REQUISICAO, criarDenunciaSucesso
-} from '../../actions/criarDenunciaActions';
+} from '../../actions/denuncia/criarDenunciaActions';
 
 const denunciaInicial = {
   bairroAgressao: '',

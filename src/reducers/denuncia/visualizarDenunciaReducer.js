@@ -1,4 +1,4 @@
-import { BUSCA_DENUNCIAS_POR_ID_SUCESSO } from '../../actions/visualizarDenunciaActions';
+import { BUSCA_DENUNCIAS_POR_ID_SUCESSO } from '../../actions/denuncia/visualizarDenunciaActions';
 
 const estadoInicial = { denuncias: [] };
 

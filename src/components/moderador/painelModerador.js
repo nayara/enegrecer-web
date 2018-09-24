@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { listaDenuncias } from '../../actions/listarDenunciasActions';
+import { listaDenuncias } from '../../actions/denuncia/listarDenunciasActions';
 import DenunciaRow from './DenunciaRow';
 import './painel-moderador.css';
 

@@ -1,6 +1,6 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 import { ref } from '../../utils/firebaseUtils';
-import { LISTA_DENUNCIAS_ERRO, LISTA_DENUNCIAS, listaDenunciasSucesso } from '../../actions/listarDenunciasActions';
+import { LISTA_DENUNCIAS_ERRO, LISTA_DENUNCIAS, listaDenunciasSucesso } from '../../actions/denuncia/listarDenunciasActions';
 
 async function recuperaDenunciasDoFirebase() {
   const denunciasResponse = await ref.child('denuncias').orderByKey().once('value');

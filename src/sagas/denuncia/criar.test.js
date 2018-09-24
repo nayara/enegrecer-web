@@ -1,6 +1,6 @@
 import { call, put, take } from 'redux-saga/effects';
 import { handleCriarDenunciaRequisicao, criarDenuncia } from './criar';
-import { CRIAR_DENUNCIA_REQUISICAO, criarDenunciaSucesso } from '../../actions/criarDenunciaActions';
+import { CRIAR_DENUNCIA_REQUISICAO, criarDenunciaSucesso } from '../../actions/denuncia/criarDenunciaActions';
 
 jest.mock('../../utils/firebaseUtils');
 

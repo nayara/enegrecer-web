@@ -1,7 +1,7 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 import { ref } from '../../utils/firebaseUtils';
 import { BUSCAR_DENUNCIA_POR_ID, buscaDenunciaPorIdSucesso }
-  from '../../actions/visualizarDenunciaActions';
+  from '../../actions/denuncia/visualizarDenunciaActions';
 
 async function recuperaDenunciaPorIdDoFirebase(denunciaId) {
   const denunciaResponse = await ref.child('denuncias').child(denunciaId).orderByKey().once('value');

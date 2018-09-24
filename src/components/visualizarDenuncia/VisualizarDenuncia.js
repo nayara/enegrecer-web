@@ -7,7 +7,7 @@ import GradeCampos from '../comum/gradeCampos/GradeCampos';
 import Carregamento from '../comum/carregamento/Carregamento';
 import Combobox from '../comum/combobox';
 import './visualizarDenuncia.css';
-import { buscaDenunciaPorId } from '../../actions/visualizarDenunciaActions';
+import { buscaDenunciaPorId } from '../../actions/denuncia/visualizarDenunciaActions';
 
 function detalhesOuCarregamento(denuncia) {
   let componente;

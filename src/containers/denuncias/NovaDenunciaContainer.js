@@ -3,7 +3,7 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { criarDenunciaRequisicao, limpaEstadoUltimaDencunciaCadastrada } from '../../actions/criarDenunciaActions';
+import { criarDenunciaRequisicao, limpaEstadoUltimaDencunciaCadastrada } from '../../actions/denuncia/criarDenunciaActions';
 import NovaDenunciaForm from '../../components/denuncias/NovaDenunciaForm';
 
 class NovaDenunciaContainer extends React.Component {

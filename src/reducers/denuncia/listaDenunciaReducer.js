@@ -1,4 +1,4 @@
-import { LISTA_DENUNCIAS_SUCCESSO } from '../../actions/listarDenunciasActions';
+import { LISTA_DENUNCIAS_SUCCESSO } from '../../actions/denuncia/listarDenunciasActions';
 
 const estadoInicial = { denuncias: [] };
 

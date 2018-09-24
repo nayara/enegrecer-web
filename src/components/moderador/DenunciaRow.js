@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Combobox from '../comum/combobox';
 import './painel-moderador.css';
-import { detalhesDenuncia } from '../../actions/visualizarDenunciaActions';
+import { detalhesDenuncia } from '../../actions/denuncia/visualizarDenunciaActions';
 
 function cliqueDetalhesDenuncia(denuncia) {
   return () => {
