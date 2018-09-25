@@ -9,7 +9,7 @@ const aplicarUsuarioAutenticado = (estado, acao) => ({
 
 function sessionReducer(estado = ESTADO_INICIAL, acao) {
   switch (acao.type) {
-    case 'AUTH_USER_SET' : {
+    case 'AUTH_USER_SET': {
       return aplicarUsuarioAutenticado(estado, acao);
     }
     default: return estado;
