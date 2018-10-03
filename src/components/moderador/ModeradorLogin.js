@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { auth, storageKey } from '../../utils/firebaseUtils';
-import Modal from '../comum/modal/modal';
+import Modal from '../comum/modal/modalDeprecated';
 
 import './moderador-login.css';
 
@@ -43,18 +43,17 @@ export default class ModeradorLogin extends Component {
 
     auth.signInWithEmailAndPassword(email, senha).then(() => {
       window.location.href = '/moderador/painel';
-    })
-      .catch((error) => {
-        const message = this.trataMensagemDeErro(error);
-        this.setState(updateByPropertyName('error', message));
+    }).catch((error) => {
+      const message = this.trataMensagemDeErro(error);
+      this.setState(updateByPropertyName('error', message));
 
-        let element = document.getElementById('confirm-button');
-        element.classList.add('modal-trigger');
-        element.click();
+      let element = document.getElementById('confirm-button');
+      element.classList.add('modal-trigger');
+      element.click();
 
-        element = document.getElementById('confirm-button');
-        element.classList.remove('modal-trigger');
-      });
+      element = document.getElementById('confirm-button');
+      element.classList.remove('modal-trigger');
+    });
 
     event.preventDefault();
   }
