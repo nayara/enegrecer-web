@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModeradorLogin deve construir o componente corretamente 1`] = `
+<div
+  className="row login_moderador"
+>
+  <form
+    className="col s4 formulario_login_moderador"
+    onSubmit={[Function]}
+  >
+    <div
+      className="input-field col s12"
+    >
+      <input
+        className="validate"
+        id="login_moderador"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <label
+        htmlFor="login_moderador"
+      >
+        Login Moderador
+      </label>
+    </div>
+    <div
+      className="input-field col s12"
+    >
+      <input
+        className="validate"
+        id="senha_moderador"
+        onChange={[Function]}
+        type="password"
+        value=""
+      />
+      <label
+        htmlFor="senha_moderador"
+      >
+        Senha Moderador
+      </label>
+    </div>
+    <button
+      className="waves-effect waves-light btn"
+      data-target="modal_erro"
+      disabled={true}
+      id="confirm-button"
+      name="action"
+      type="submit"
+    >
+      Entrar
+    </button>
+  </form>
+  <Modal
+    acaoBotaoOk={[Function]}
+    deveExibir={false}
+    id="modal_erro"
+    textoBotao="FECHAR"
+    textoModal={null}
+    tituloModal="Erro ao logar"
+  />
+</div>
+`;

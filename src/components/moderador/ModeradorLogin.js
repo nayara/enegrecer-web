@@ -1,38 +1,28 @@
 import React, { Component } from 'react';
 import { auth, storageKey } from '../../utils/firebaseUtils';
-import Modal from '../comum/modal/modalDeprecated';
-
+import Modal from '../comum/modal/modal';
 import './moderador-login.css';
-
-const updateByPropertyName = (propertyName, value) => () => ({
-  [propertyName]: value,
-});
-
-const ESTADO_INICIAL = {
-  email: '',
-  senha: '',
-  error: null,
-};
 
 export default class ModeradorLogin extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { ...ESTADO_INICIAL };
+    this.state = {
+      email: '',
+      senha: '',
+      error: null,
+      deveExibirPopup: false
+    };
   }
 
   componentDidMount() {
-    auth.onAuthStateChanged((user) => {
-      if (user.uid.includes('obr3tOVUmgfM0WYf51ftqE4zuqz2')) {
-        window.localStorage.setItem(storageKey, user.uid);
-      } else {
-        window.localStorage.removeItem(storageKey);
-      }
-    });
-
-    window.$(document).ready(() => {
-      window.$('.modal').modal();
-    });
+    // auth.onAuthStateChanged((user) => {
+    //   if (user.uid.includes('obr3tOVUmgfM0WYf51ftqE4zuqz2')) {
+    //     window.localStorage.setItem(storageKey, user.uid);
+    //   } else {
+    //     window.localStorage.removeItem(storageKey);
+    //   }
+    // });
   }
 
   onSubmit = (event) => {
@@ -41,18 +31,13 @@ export default class ModeradorLogin extends Component {
       senha,
     } = this.state;
 
+    const self = this;
+
     auth.signInWithEmailAndPassword(email, senha).then(() => {
       window.location.href = '/moderador/painel';
     }).catch((error) => {
       const message = this.trataMensagemDeErro(error);
-      this.setState(updateByPropertyName('error', message));
-
-      let element = document.getElementById('confirm-button');
-      element.classList.add('modal-trigger');
-      element.click();
-
-      element = document.getElementById('confirm-button');
-      element.classList.remove('modal-trigger');
+      self.setState({ deveExibirPopup: true, message });
     });
 
     event.preventDefault();
@@ -74,6 +59,7 @@ export default class ModeradorLogin extends Component {
       email,
       senha,
       error,
+      deveExibirPopup
     } = this.state;
 
     const isInvalid =
@@ -84,19 +70,25 @@ export default class ModeradorLogin extends Component {
       <div className="row login_moderador">
         <form className="col s4 formulario_login_moderador" onSubmit={this.onSubmit}>
           <div className="input-field col s12">
-            <input id="login_moderador" type="text" className="validate" value={email} onChange={event => this.setState(updateByPropertyName('email', event.target.value))} />
+            <input id="login_moderador" type="text" className="validate" value={email} onChange={event => this.setState({ email: event.target.value })} />
             <label htmlFor="login_moderador">Login Moderador</label>
           </div>
           <div className="input-field col s12">
-            <input id="senha_moderador" type="password" className="validate" value={senha} onChange={event => this.setState(updateByPropertyName('senha', event.target.value))} />
+            <input id="senha_moderador" type="password" className="validate" value={senha} onChange={event => this.setState({ senha: event.target.value })} />
             <label htmlFor="senha_moderador">Senha Moderador</label>
           </div>
-          <button id="confirm-button" className="waves-effect waves-light btn" data-target="modal_erro" disabled={isInvalid} type="submit" name="action" >
+          <button id="confirm-button" data-target="modal_erro" className="waves-effect waves-light btn" disabled={isInvalid} type="submit" name="action" >
               Entrar
           </button>
-
-          <Modal id="modal_erro" tituloModal="Erro ao logar" textoModal={error} textoBotao="FECHAR" />
         </form>
+        <Modal
+          id="modal_erro"
+          tituloModal="Erro ao logar"
+          textoModal={error}
+          textoBotao="FECHAR"
+          acaoBotaoOk={() => console.log('ok button')}
+          deveExibir={deveExibirPopup}
+        />
       </div>
     );
   }
