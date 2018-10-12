@@ -52,14 +52,8 @@
           "required": {
             "some": [ "nesting", "id" ]
           }
-<<<<<<< HEAD
         }],
-=======
-        },
-        "rules": {
-          "jsx-a11y/href-no-hash": [0]
-        },
->>>>>>> ISSUE-273 muda estrutura da denuncia armazenada no banco
+        "jsx-a11y/href-no-hash": [0],
         "jsx-a11y/anchor-is-valid": [ "error", {
          "components": [ "Link" ],
          "specialLink": [ "to" ]

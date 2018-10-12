@@ -8,16 +8,14 @@ import './painel-moderador.css';
 import { detalhesDenuncia } from '../../actions/visualizarDenunciaActions';
 import { removerDenuncia } from '../../actions/removerDenunciaActions';
 
-function cliqueDetalhesDenuncia(denuncia) {
-  return () => {
-    denuncia.props.dispatch(detalhesDenuncia({ denuncia: denuncia.props.denuncia }));
-  };
-}
-
 class DenunciaRow extends Component {
   constructor(props) {
     super(props);
     this.state = { expanded: false };
+  }
+
+  cliqueDetalhesDenuncia = () => {
+    this.props.dispatch(detalhesDenuncia({ denuncia: this.props.denuncia }));
   }
 
   mudaEstado = () => {
@@ -32,19 +30,20 @@ class DenunciaRow extends Component {
     const { expanded } = this.state;
     const { denuncia } = this.props;
     const { agressao } = denuncia;
-    const { denunciante } = denuncia;
+    const { vitima, denunciante, agressor } = denuncia.pessoasEnvolvidas;
 
     return (
       <Fragment>
         <tr className="table-row">
           <td>{agressao.status}</td>
           <td>{agressao.data}</td>
-          <td>{denuncia.vitima.genero}</td>
+          <td>{vitima.genero}</td>
           <td>{agressao.estado}</td>
           <td>{agressao.cidade}</td>
           <td>{agressao.bairro}</td>
           <td>
-            <Link to={`/moderador/visualizar-denuncia/${denuncia.id}`} className="mais-detalhes" onClick={cliqueDetalhesDenuncia(this)}> mais detalhes </Link>
+            <Link to={`/moderador/visualizar-denuncia/${denuncia.id}`} className="mais-detalhes"
+              onClick={this.cliqueDetalhesDenuncia}> mais detalhes </Link>
           </td>
           <td>
             <input
@@ -107,7 +106,6 @@ class DenunciaRow extends Component {
                 </div>
               </td>
             </tr>
-
           </Fragment>
         )}
       </Fragment>
