@@ -1,10 +1,16 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 import { ref } from '../../utils/firebaseUtils';
-import { BUSCAR_DENUNCIA_POR_ID, buscaDenunciaPorIdSucesso }
-  from '../../actions/visualizarDenunciaActions';
+import {
+  BUSCAR_DENUNCIA_POR_ID,
+  buscaDenunciaPorIdSucesso
+} from '../../actions/visualizarDenunciaActions';
 
 async function recuperaDenunciaPorIdDoFirebase(denunciaId) {
-  const denunciaResponse = await ref.child('denuncias').child(denunciaId).orderByKey().once('value');
+  const denunciaResponse = await ref
+    .child('denuncias')
+    .child(denunciaId)
+    .orderByKey()
+    .once('value');
   return denunciaResponse.val();
 }
 
@@ -13,7 +19,7 @@ function* buscaDenunciaPorId(action) {
     const denuncia = yield call(() => recuperaDenunciaPorIdDoFirebase(action.payload));
     yield put(buscaDenunciaPorIdSucesso(denuncia));
   } catch (error) {
-    console.error(error);
+    throw error; // FIXME verificar melhor maneira para tratar esse erro.
   }
 }
 

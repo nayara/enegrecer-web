@@ -30,7 +30,7 @@ class DenunciaRow extends Component {
     const { expanded } = this.state;
     const { denuncia } = this.props;
     const { agressao } = denuncia;
-    const { vitima, denunciante, agressor } = denuncia.pessoasEnvolvidas;
+    const { vitima, denunciante } = denuncia.pessoasEnvolvidas;
 
     return (
       <Fragment>
@@ -42,8 +42,12 @@ class DenunciaRow extends Component {
           <td>{agressao.cidade}</td>
           <td>{agressao.bairro}</td>
           <td>
-            <Link to={`/moderador/visualizar-denuncia/${denuncia.id}`} className="mais-detalhes"
-              onClick={this.cliqueDetalhesDenuncia}> mais detalhes </Link>
+            <Link
+              to={`/moderador/visualizar-denuncia/${denuncia.id}`}
+              className="mais-detalhes"
+              onClick={this.cliqueDetalhesDenuncia}
+            > mais detalhes
+            </Link>
           </td>
           <td>
             <input
