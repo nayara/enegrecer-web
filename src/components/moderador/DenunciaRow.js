@@ -23,7 +23,11 @@ class DenunciaRow extends Component {
     const { expanded } = this.state;
     const { denuncia } = this.props;
     const { agressao } = denuncia;
+<<<<<<< HEAD
     const { vitima, denunciante } = denuncia.pessoasEnvolvidas;
+=======
+    const { vitima, denunciante, agressor } = denuncia.pessoasEnvolvidas;
+>>>>>>> ISSUE-273 ajusta renderização dos dados da denuncia para se ajustar a nova estrutura do banco
 
     return (
       <Fragment>
@@ -35,12 +39,17 @@ class DenunciaRow extends Component {
           <td>{agressao.cidade}</td>
           <td>{agressao.bairro}</td>
           <td>
+<<<<<<< HEAD
             <Link
               to={`/moderador/visualizar-denuncia/${denuncia.id}`}
               className="mais-detalhes"
               onClick={this.cliqueDetalhesDenuncia}
             > mais detalhes
             </Link>
+=======
+            <Link to={`/moderador/visualizar-denuncia/${denuncia.id}`} className="mais-detalhes"
+              onClick={this.cliqueDetalhesDenuncia}> mais detalhes </Link>
+>>>>>>> ISSUE-273 ajusta renderização dos dados da denuncia para se ajustar a nova estrutura do banco
           </td>
           <td>
             <input

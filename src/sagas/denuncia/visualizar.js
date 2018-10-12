@@ -13,7 +13,11 @@ function* buscaDenunciaPorId(action) {
     const denuncia = yield call(() => recuperaDenunciaPorIdDoFirebase(action.payload));
     yield put(buscaDenunciaPorIdSucesso(denuncia));
   } catch (error) {
+<<<<<<< HEAD
     throw error; // FIXME verificar melhor maneira para tratar esse erro.
+=======
+    console.error(error);
+>>>>>>> ISSUE-273 ajusta renderização dos dados da denuncia para se ajustar a nova estrutura do banco
   }
 }
 
