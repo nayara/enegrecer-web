@@ -49,11 +49,9 @@
         "no-underscore-dangle": ["error", { "allow": ["__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"] }],
         "prefer-const": "warn",
         "jsx-a11y/label-has-for": [1, {
-          "components": ["Label"],
           "required": {
             "some": [ "nesting", "id" ]
-          },
-          "allowChildren": false
+          }
         }],
         "jsx-a11y/anchor-is-valid": [ "error", {
          "components": [ "Link" ],
