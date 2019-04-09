@@ -1,9 +1,9 @@
-import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import Combobox from "../comum/combobox";
-import "./painel-moderador.css";
-import { detalhesDenuncia } from "../../actions/visualizarDenunciaActions";
+import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import Combobox from '../comum/combobox';
+import './painel-moderador.css';
+import { detalhesDenuncia } from '../../actions/visualizarDenunciaActions';
 
 class DenunciaRow extends Component {
   constructor(props) {
@@ -40,15 +40,15 @@ class DenunciaRow extends Component {
               className="mais-detalhes"
               onClick={this.cliqueDetalhesDenuncia}
             >
-              {" "}
-              mais detalhes{" "}
+              {' '}
+              mais detalhes{' '}
             </Link>
           </td>
           <td>
             <input
               type="button"
               className={`botao-expandir-retrair ${
-                expanded ? "botao-retrair" : "botao-expandir"
+                expanded ? 'botao-retrair' : 'botao-expandir'
               }`}
               onClick={this.mudaEstado}
             />
@@ -94,10 +94,10 @@ class DenunciaRow extends Component {
               <td colSpan="5">
                 <Combobox
                   label="Classifique a denúncia"
-                  itens={["Injúria Racial", "Racismo"]}
+                  itens={['Injúria Racial', 'Racismo']}
                 />
               </td>
-              <td style={{ textAlign: "right" }}>
+              <td style={{ textAlign: 'right' }}>
                 <input
                   className="remover-denuncia"
                   type="button"
@@ -105,7 +105,7 @@ class DenunciaRow extends Component {
                 />
               </td>
 
-              <td colSpan="2" style={{ textAlign: "center" }}>
+              <td colSpan="2" style={{ textAlign: 'center' }}>
                 <div className="waves-effect waves-light btn botao-aceitar-denuncia">
                   <input
                     type="button"
