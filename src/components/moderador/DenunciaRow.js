@@ -1,9 +1,9 @@
-import React, { Component, Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import Combobox from '../comum/combobox';
-import './painel-moderador.css';
-import { detalhesDenuncia } from '../../actions/visualizarDenunciaActions';
+import React, { Component, Fragment } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import Combobox from "../comum/combobox";
+import "./painel-moderador.css";
+import { detalhesDenuncia } from "../../actions/visualizarDenunciaActions";
 
 class DenunciaRow extends Component {
   constructor(props) {
@@ -13,21 +13,17 @@ class DenunciaRow extends Component {
 
   cliqueDetalhesDenuncia = () => {
     this.props.dispatch(detalhesDenuncia({ denuncia: this.props.denuncia }));
-  }
+  };
 
   mudaEstado = () => {
     this.setState({ expanded: !this.state.expanded });
-  }
+  };
 
   render() {
     const { expanded } = this.state;
     const { denuncia } = this.props;
     const { agressao } = denuncia;
-<<<<<<< HEAD
-    const { vitima, denunciante } = denuncia.pessoasEnvolvidas;
-=======
     const { vitima, denunciante, agressor } = denuncia.pessoasEnvolvidas;
->>>>>>> ISSUE-273 ajusta renderização dos dados da denuncia para se ajustar a nova estrutura do banco
 
     return (
       <Fragment>
@@ -39,22 +35,21 @@ class DenunciaRow extends Component {
           <td>{agressao.cidade}</td>
           <td>{agressao.bairro}</td>
           <td>
-<<<<<<< HEAD
             <Link
               to={`/moderador/visualizar-denuncia/${denuncia.id}`}
               className="mais-detalhes"
               onClick={this.cliqueDetalhesDenuncia}
-            > mais detalhes
+            >
+              {" "}
+              mais detalhes{" "}
             </Link>
-=======
-            <Link to={`/moderador/visualizar-denuncia/${denuncia.id}`} className="mais-detalhes"
-              onClick={this.cliqueDetalhesDenuncia}> mais detalhes </Link>
->>>>>>> ISSUE-273 ajusta renderização dos dados da denuncia para se ajustar a nova estrutura do banco
           </td>
           <td>
             <input
               type="button"
-              className={`botao-expandir-retrair ${expanded ? 'botao-retrair' : 'botao-expandir'}`}
+              className={`botao-expandir-retrair ${
+                expanded ? "botao-retrair" : "botao-expandir"
+              }`}
               onClick={this.mudaEstado}
             />
           </td>
@@ -99,16 +94,25 @@ class DenunciaRow extends Component {
               <td colSpan="5">
                 <Combobox
                   label="Classifique a denúncia"
-                  itens={['Injúria Racial', 'Racismo']}
+                  itens={["Injúria Racial", "Racismo"]}
                 />
               </td>
-              <td style={{ textAlign: 'right' }}>
-                <input className="remover-denuncia" type="button" value="Deletar" />
+              <td style={{ textAlign: "right" }}>
+                <input
+                  className="remover-denuncia"
+                  type="button"
+                  value="Deletar"
+                />
               </td>
 
-              <td colSpan="2" style={{ textAlign: 'center' }}>
+              <td colSpan="2" style={{ textAlign: "center" }}>
                 <div className="waves-effect waves-light btn botao-aceitar-denuncia">
-                  <input type="button" className="aceitar-denuncia" value="aceitar denúncia" onClick={this.aceitarDenuncia} />
+                  <input
+                    type="button"
+                    className="aceitar-denuncia"
+                    value="aceitar denúncia"
+                    onClick={this.aceitarDenuncia}
+                  />
                 </div>
               </td>
             </tr>
